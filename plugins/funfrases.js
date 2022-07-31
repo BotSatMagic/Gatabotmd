@@ -24,6 +24,7 @@ let handler  = async (m, { conn }) => {
   
   global.allfrases = [
     "El único modo de hacer un gran trabajo es amar lo que haces ",
+    "Pégate el mañanero, y come bien ",   
     "El amor es el que hace que la vida se vuelva una experiencia inolvidable ",
     "Nunca pienso en las consecuencias de fallar un gran tiro… cuando se piensa en las consecuencias se está pensando en un resultado negativo",
     "El dinero no es la clave del éxito; la libertad para poder crear lo es",
