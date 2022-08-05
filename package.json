@@ -27,7 +27,11 @@
     },
     "license": "MIT",
     "dependencies": {
+<<<<<<< HEAD
         "@adiwajshing/baileys":"github:BrunoSobrino/baileys",
+=======
+        "@adiwajshing/baileys": "github:BrunoSobrino/baileys",
+>>>>>>> 7f0b08832ba29b9149f00922fbde9839c332c65b
         "@bochilteam/scraper": "^3.0.0",
         "acrcloud": "^1.4.0",
         "awesome-phonenumber": "^2.68.0",
