@@ -449,10 +449,20 @@ let vn = './media/violin.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
          
-if (chat.audios && m.text.match(/Muchachos/gi)) {    
+if (chat.audios && m.text.match(/(Usted esta detenido|usted esta detenido|usted está detenido|Usted está detenido)/gi)) {    
 let vn = './media/Muchachos.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
 
+if (chat.audios && m.text.match(/(Goku pervertido|pervertido|pervertida|goku)/gi)) {    
+let vn = './media/Ya antojaron.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+
+if (chat.audios && m.text.match(/(Y este quien es|Y este quien poronga es|Y este quien porongas es)/gi)) {    
+let vn = './media/Y este quien es.mp3'
+this.sendPresenceUpdate('recording', m.chat)   
+this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+    
 return !0 }
 export default handler
