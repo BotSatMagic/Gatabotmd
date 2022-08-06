@@ -209,7 +209,7 @@ let vn = './media/abduzcan.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
         
-if (chat.audios && m.text.match(/(Adios|bye|chao)/gi)) {    
+if (chat.audios && m.text.match(/(Adios|bye|se fue)/gi)) {    
 let vn = './media/adios.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
