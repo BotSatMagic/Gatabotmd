@@ -438,7 +438,7 @@ if (chat.audios && m.text.match(/(abduzcan|Abduzcan|adbuzcan|Adbuzcan)/gi)) {
     let vn = './media/Tal vez.mp3'
     this.sendPresenceUpdate('recording', m.chat)   
     this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-    
+  /*  
     if (chat.audios && m.text.match(/(Muchachos)/gi)) {    
     let vn = './media/Muchachos.mp3'
     this.sendPresenceUpdate('recording', m.chat)   
@@ -453,6 +453,6 @@ if (chat.audios && m.text.match(/(abduzcan|Abduzcan|adbuzcan|Adbuzcan)/gi)) {
     let vn = './media/Muchachos.mp3'
     this.sendPresenceUpdate('recording', m.chat)   
     this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
-
+*/
 return !0 }
 export default handler
