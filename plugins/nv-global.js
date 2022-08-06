@@ -439,6 +439,7 @@ if (chat.audios && m.text.match(/(abduzcan|Abduzcan|adbuzcan|Adbuzcan)/gi)) {
     this.sendPresenceUpdate('recording', m.chat)   
     this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
   /*  
+  
     if (chat.audios && m.text.match(/(Muchachos)/gi)) {    
     let vn = './media/Muchachos.mp3'
     this.sendPresenceUpdate('recording', m.chat)   
