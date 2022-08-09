@@ -1,3 +1,4 @@
+/*
 import util from 'util'
 import path from 'path'
 
@@ -15,3 +16,4 @@ ptt: true
 handler.customPrefix = /Traigan le una falda|Traiganle una falda/i 
 handler.command = new RegExp
 export default handler
+*/

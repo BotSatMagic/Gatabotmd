@@ -1,3 +1,4 @@
+/*
 import util from 'util'
 import path from 'path'
 
@@ -15,3 +16,4 @@ ptt: true
 handler.customPrefix = /Se están riendo de mí|Se estan riendo de mi|Se esta riendo de mi|Se está riendo de mi/i 
 handler.command = new RegExp
 export default handler
+*/
