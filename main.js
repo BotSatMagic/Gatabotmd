@@ -14,17 +14,19 @@ import {
   unlinkSync,
   existsSync,
   readFileSync,
-  watch
+  //watch
 } from 'fs';
+import watch from 'glob-fs'
 import yargs from 'yargs';
 import { spawn } from 'child_process';
 import lodash from 'lodash';
+import chalk from 'chalk';
 import syntaxerror from 'syntax-error';
 import { tmpdir } from 'os';
 import { format } from 'util';
 import { makeWASocket, protoType, serialize } from './lib/simple.js';
 import { Low, JSONFile } from 'lowdb';
-// import pino from 'pino';
+import p from 'pino';
 import {
   mongoDB,
   mongoDBV2
@@ -41,6 +43,8 @@ const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 protoType()
 serialize()
+
+global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') { return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString() }; global.__dirname = function dirname(pathURL) { return path.dirname(global.__filename(pathURL, true)) }; global.__require = function require(dir = import.meta.url) { return createRequire(dir) }
 
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({ ...query, ...(apikeyqueryname ? { [apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name] } : {}) })) : '')
 // global.Fn = function functionCallBack(fn, ...args) { return fn.call(global.conn, ...args) }
@@ -94,7 +98,7 @@ const { state, saveState } = store.useSingleFileAuthState(global.authFile)
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
-  // logger: pino({ level: 'trace' })
+  logger: p({ level: 'silenct' })
 }
 
 global.conn = makeWASocket(connectionOptions)
@@ -103,12 +107,9 @@ conn.isInit = false
 if (!opts['test']) {
   setInterval(async () => {
     if (global.db.data) await global.db.write().catch(console.error)
-    if (opts['autocleartmp']) try {
-      clearTmp()
+    if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
+}, 30 * 1000)}
 
-    } catch (e) { console.error(e) }
-  }, 60 * 1000)
-}
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
 
@@ -132,6 +133,8 @@ async function connectionUpdate(update) {
     global.timestamp.connect = new Date
   }
   if (global.db.data == null) loadDatabase()
+  if (connection == 'open') {
+    console.log(chalk.yellow('▣─────────────────────────────···\n│\n│❧ 𝙲𝙾𝙽𝙴𝙲𝚃𝙰𝙳𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙰𝙼𝙴𝙽𝚃𝙴 𝙰𝙻 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 ✅\n│\n▣─────────────────────────────···'))}
 }
 
 
