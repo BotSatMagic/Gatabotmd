@@ -1,4 +1,4 @@
-/*
+
 import util from 'util'
 import path from 'path'
 let handler = async (m, { conn }) => {
@@ -10,4 +10,3 @@ conn.sendFile(m.chat, vn, 'a.mp3', null, m, true, { type: 'audioMessage', ptt: t
 handler.customPrefix = /ª|a|A/
 handler.command = /^(a|ª|A?$)/
 export default handler 
-*/
