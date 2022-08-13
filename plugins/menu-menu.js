@@ -39,6 +39,8 @@ process.once('message', resolve)
 setTimeout(resolve, 1000)
 }) * 1000
 }
+let { money, joincount } = global.db.data.users[m.sender]
+let user = global.db.data.users[m.sender]
 let muptime = clockString(_muptime)
 let uptime = clockString(_uptime)
 let totalreg = Object.keys(global.db.data.users).length
@@ -59,47 +61,76 @@ level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, r
 readmore: readMore
 }
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+//let user = global.db.data.users[m.sender]
+//user.registered = false
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let mentionedJid = [who]
+let username = conn.getName(who) 
 
     
 
 let str = `
-*ミ💖 𝙷𝙾𝙻𝙰 ✨${name}✨, 𝙰𝚀𝚄𝙸 𝙴𝚂𝚃𝙰 𝙴𝙻 𝙼𝙴𝙽𝚄 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙾 𝙳𝙴 GATABOT - MIAUU 💖彡*
+`*╭━━━〔 𝙈𝙀𝙉𝙐 𝘾𝙊𝙈𝙋𝙇𝙀𝙏𝙊 〕━━━⬣*
+*┆⦒ 𓃠 𝙑𝙀𝙍𝙎𝙄𝙊𝙉 » ${vs}*
+*┆⦒ 𝙁𝙀𝘾𝙃𝘼 » ${week}, ${date}*
+*┆⦒ 𝙏𝙄𝙀𝙈𝙋𝙊 𝘼𝘾𝙏𝙄𝙑𝙊 » ${uptime}*
+*┆⦒ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊𝙎 » ${Object.keys(global.db.data.users).length}*
+*╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧* 
+*╭━〔* ${username} *〕━━⬣*
+*┆🧰 EXPERIENCIA ➟ ${exp}*
+*┆🎖️ NIVEL ➟ ${level} || ${user.exp - min}/${xp}*
+*┆⚓ RANGO ➟* ${role}
+*┆💎 DIAMANTES ➟ ${limit}*
+*┆🐈 GATACOINS ➟ ${money}*
+*┆🪙 TOKENS ➟ ${joincount}*
+*┆🎟️ PREMIUM ➟* ${global.prem ? '✅' : '❌'}
+*╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧*
+${readMore}
+*╭━〔 INFORMACIÓN DE GATABOT 〕━⬣*
+┃💫➺ _${usedPrefix}estado | heygata | status_
+┃💫➺ _${usedPrefix}infogata | infobot_
+┃💫➺ _${usedPrefix}velocidad | ping_
+┃💫➺ _Bot_ 
+*╰━━━━━━━━━━━━⬣*
 
-*📅 𝙵𝙴𝙲𝙷𝙰: ${week}, ${date}*
-
-*📊 𝚄𝚂𝚄𝙰𝚁𝙸𝙾𝚂: ${rtotalreg}*
-
-*<𝕀ℕ𝔽𝕆ℝ𝕄𝔸ℂ𝕀𝕆ℕ 𝔻𝔼𝕃 𝔹𝕆𝕋/>*
-
-° ඬ ⃟ 💟 _${usedPrefix}estado_
-° ඬ ⃟ 💟 _${usedPrefix}velocidad_
-° ඬ ⃟ 💟 _Bot_ (𝑢𝑠𝑜 𝑠𝑖𝑛 𝑝𝑟𝑒𝑓𝑖𝑗𝑜)
-
-*<𝕁𝕌𝔼𝔾𝕆𝕊/>*
-
-° ඬ⃟🎖️ _${usedPrefix}mates *<noob / easy / medium / hard / extreme /impossible /impossible2>*_
-° ඬ⃟🎖️ _${usedPrefix}ppt *<papel / tijera /piedra>*_
-° ඬ⃟🎖️ _${usedPrefix}prostituto *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}prostituta *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}gay2 *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}lesbiana *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}pajero *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}pajera *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}puto *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}puta *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}manco *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}manca *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}rata *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}love *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}doxear *<nombre / @tag>*_
-° ඬ⃟🎖️ _${usedPrefix}pregunta *<texto>*_
-° ඬ⃟🎖️ _${usedPrefix}slot *<apuesta>*_
-° ඬ⃟🎖️ _${usedPrefix}simi *<texto>*_
-° ඬ⃟🎖️ _${usedPrefix}topgays_
-° ඬ⃟🎖️ _${usedPrefix}topotakus_
-° ඬ⃟🎖️ _${usedPrefix}formarpareja_
-° ඬ⃟🎖️ _${usedPrefix}verdad_
-° ඬ⃟🎖️ _${usedPrefix}reto_
+*╭━〔 JUEGOS - MULTI JUEGOS 〕━⬣*
+┃🎡➺ _${usedPrefix}mates | matemáticas | math_
+┃🎡➺ _${usedPrefix}ppt *piedra : papel : tijera*_
+┃🎡➺ _${usedPrefix}tictactoe | ttt *sala*_
+┃🎡➺ _${usedPrefix}deltictactoe | delttt_
+┃🎡➺ _${usedPrefix}topgays_
+┃🎡➺ _${usedPrefix}topotakus_
+┃🎡➺ _${usedPrefix}topintegrantes | topintegrante_
+┃🎡➺ _${usedPrefix}toplagrasa | topgrasa_
+┃🎡➺ _${usedPrefix}toppanafrescos | toppanafresco_
+┃🎡➺ _${usedPrefix}topshiposters | topshipost_
+┃🎡➺ _${usedPrefix}toppajeros | toppajer@s_
+┃🎡➺ _${usedPrefix}toplindos | toplind@s_
+┃🎡➺ _${usedPrefix}topputos | topput@s_
+┃🎡➺ _${usedPrefix}topfamosos | topfamos@s_
+┃🎡➺ _${usedPrefix}topparejas | top5parejas_
+┃🎡➺ _${usedPrefix}gay | gay *@tag*_
+┃🎡➺ _${usedPrefix}gay2 *nombre : @tag*_
+┃🎡➺ _${usedPrefix}lesbiana *nombre : @tag*_
+┃🎡➺ _${usedPrefix}manca *nombre : @tag*_
+┃🎡➺ _${usedPrefix}manco *nombre : @tag*_
+┃🎡➺ _${usedPrefix}pajero *nombre : @tag*_
+┃🎡➺ _${usedPrefix}pajera *nombre : @tag*_
+┃🎡➺ _${usedPrefix}puto *nombre : @tag*_
+┃🎡➺ _${usedPrefix}puta *nombre : @tag*_
+┃🎡➺ _${usedPrefix}rata *nombre : @tag*_
+┃🎡➺ _${usedPrefix}love *nombre : @tag*_
+┃🎡➺ _${usedPrefix}doxear *nombre : @tag*_
+┃🎡➺ _${usedPrefix}doxxeame_
+┃🎡➺ _${usedPrefix}pregunta *texto*_
+┃🎡➺ _${usedPrefix}apostar | slot *cantidad*_
+┃🎡➺ _${usedPrefix}formarpareja_
+┃🎡➺ _${usedPrefix}dado_
+┃🎡➺ _${usedPrefix}verdad_
+┃🎡➺ _${usedPrefix}reto_
+┃🎡➺ _${usedPrefix}multijuegos_
+┃🎡➺ _${usedPrefix}juegos_
+*╰━━━━━━━━━━━━⬣*
 
 *<𝔸ℂ𝕋𝕀𝕍𝔸ℝ 𝕆 𝔻𝔼𝕊𝔸ℂ𝕋𝕀𝕍𝔸ℝ/>*
 
@@ -378,12 +409,28 @@ _(𝑢𝑠𝑜 𝑠𝑖𝑛 𝑝𝑟𝑒𝑓𝑖𝑗𝑜)_
 ° ඬ⃟👑 _${usedPrefix}añadirdiamantes *<@tag> <cantidad>*_
 ° ඬ⃟👑 _${usedPrefix}añadirxp *<@tag> <cantidad>*_
 `.trim()
-conn.sendHydrated(m.chat, str, wm, pp, '🤡 𝙃𝙊𝙇𝘼 Michu michu 🤡', `Hola`, null, null, [
+
+const fkontak = {
+	"key": {
+    "participants":"0@s.whatsapp.net",
+		"remoteJid": "status@broadcast",
+		"fromMe": false,
+		"id": "Halo"
+	},
+	"message": {
+		"contactMessage": {
+			"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+		}
+	},
+	"participant": "0@s.whatsapp.net"
+}
+
+await conn.sendHydrated2(m.chat, str, wm, pp, '🤡 𝙃𝙊𝙇𝘼 Michu michu 🤡', `Hola`, null, null, [
 ['🌟 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄Ó𝙉 | 𝙄𝙉𝙁𝙊 𝙈𝙀𝙉𝙐 🌟', '.infomenu'],
 ['🎡 𝙅𝙐𝙀𝙂𝙊𝙎 𝘿𝙄𝙉𝘼𝙈𝙄𝘾𝙊𝙎 | 𝙂𝘼𝙈𝙀𝙎 🎡', '.juegosmenu'],
 ['💝 𝙈𝙚𝙣𝙪 𝘼𝙪𝙙𝙞𝙤𝙨 💝', '.audios']
-
 ], m,)
+
 await conn.sendFile(m.chat, vn, 'usame_ex.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true})
