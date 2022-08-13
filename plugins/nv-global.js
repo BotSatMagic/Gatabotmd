@@ -235,10 +235,10 @@ let vn = './media/bien-pensado-woody.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}  
     
-if (!chat.isBanned && chat.audios && m.text.match(/(bienvenido|bienvenida)|/gi)) {    
-let vn = './media/Bienvenido.mp3'
-this.sendPresenceUpdate('recording', m.chat)   
-this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
+//if (!chat.isBanned && chat.audios && m.text.match(/(bienvenido|bienvenida)|/gi)) {    
+//let vn = './media/Bienvenido.mp3'
+//this.sendPresenceUpdate('recording', m.chat)   
+//this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}
     
 if (!chat.isBanned && chat.audios && m.text.match(/(Blackpink in your area|blackpink in your area|in your area|In your area)/gi)) {    
 let vn = './media/Blackpink in your area.mp3'
