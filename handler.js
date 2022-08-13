@@ -42,20 +42,25 @@ export async function handler(chatUpdate) {
                 global.db.data.users[m.sender] = {}
             if (user) {
                 if (!isNumber(user.exp))
-                    user.exp = 0
-                if (!isNumber(user.limit))
-                    user.limit = 10
-                if (!isNumber(user.lastclaim))
-                    user.lastclaim = 0
-                if (!('registered' in user))
-                    user.registered = false
-                if (!user.registered) {
-                    if (!('name' in user))
-                        user.name = m.name
-                    if (!isNumber(user.age))
-                        user.age = -1
-                    if (!isNumber(user.regTime))
-                        user.regTime = -1
+                user.exp = 0
+            if (!isNumber(user.limit))
+                user.limit = 20
+        if (!isNumber(user.joincount)) 
+            user.joincount = 1
+            if (!isNumber(user.lastclaim))
+                user.lastclaim = 0
+    if (!isNumber(user.lastcofre))
+                user.lastcofre = 0
+            if (!('registered' in user))
+                user.registered = false
+            if (!user.registered) {
+                if (!('name' in user))
+                    user.name = m.name
+                if (!isNumber(user.age))
+                    user.age = -1
+                if (!isNumber(user.regTime))
+                    user.regTime = -1
+
                 }
                 if (!isNumber(user.afk))
                     user.afk = -1
@@ -71,6 +76,7 @@ export async function handler(chatUpdate) {
                     user.role = 'Novato'
                 if (!('autolevelup' in user))
                     user.autolevelup = true
+
 
                 if (!isNumber(user.money))
                     user.money = 0
@@ -156,6 +162,8 @@ export async function handler(chatUpdate) {
 
                 if (!isNumber(user.lastclaim))
                     user.lastclaim = 0
+		if (!isNumber(user.lastcofre))
+                    user.lastcofre = 0
                 if (!isNumber(user.lastadventure))
                     user.lastadventure = 0
                 if (!isNumber(user.lastfishing))
@@ -175,8 +183,9 @@ export async function handler(chatUpdate) {
             } else
                 global.db.data.users[m.sender] = {
                     exp: 0,
-                    limit: 10,
+                    limit: 20,
                     lastclaim: 0,
+		    joincount: 1,
                     registered: false,
                     name: m.name,
                     age: -1,
@@ -187,11 +196,11 @@ export async function handler(chatUpdate) {
                     warn: 0,
                     level: 0,
                     role: 'Novato',
-                    autolevelup: true,
+                    autolevelup: false,
 
                     money: 0,
                     health: 100,
-                    limit: 10,
+                    limit: 20,
                     potion: 10,
                     trash: 0,
                     wood: 0,
@@ -233,6 +242,7 @@ export async function handler(chatUpdate) {
                     fishingroddurability: 0,
 
                     lastclaim: 0,
+		            lastcofre: 0,
                     lastadventure: 0,
                     lastfishing: 0,
                     lastdungeon: 0,
@@ -263,11 +273,15 @@ export async function handler(chatUpdate) {
                 if (!('delete' in chat))
                     chat.delete = true
                 if (!('modohorny' in chat))
-                    chat.modohorny = false    
+                    chat.modohorny = false
+                if (!('stickers' in chat))
+                    chat.stickers = false
                 if (!('autosticker' in chat))
-                    chat.autosticker = false                    
+                    chat.autosticker = false  
                 if (!('audios' in chat))
-                    chat.audios = false                            
+                    chat.audios = false 
+	        	if (!('antiver' in chat))
+                    chat.antiver = true
                 if (!('antiLink' in chat))
                     chat.antiLink = false
                 if (!('antiLink2' in chat))
@@ -286,27 +300,31 @@ export async function handler(chatUpdate) {
                     sWelcome: '',
                     sBye: '',
                     sPromote: '',
-                    sDemote: '',
+                    sDemote: '', 
                     delete: true,
                     modohorny: true,
+                    stickers: true,
                     autosticker: false,
                     audios: true,
+		            antiver: true,
                     antiLink: false,
                     antiLink2: false,
                     viewonce: false,
                     antiToxic: false,
                     expired: 0,
                 }
-            let settings = global.db.data.settings[this.user.jid]
-            if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
-            if (settings) {
-                if (!('self' in settings)) settings.self = false
-                if (!('autoread' in settings)) settings.autoread = false
-                if (!('restrict' in settings)) settings.restrict = false
-            } else global.db.data.settings[this.user.jid] = {
-                self: false,
-                autoread: false,
-                restrict: false
+                let settings = global.db.data.settings[this.user.jid]
+                if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
+                if (settings) {
+                    if (!('self' in settings)) settings.self = false
+                    if (!('autoread' in settings)) settings.autoread = false
+                    if (!('restrict' in settings)) settings.restrict = false
+                    if (!('temporal' in settings)) settings.temporal = false
+                } else global.db.data.settings[this.user.jid] = {
+                    self: false,
+                    autoread: false,
+                    restrict: false,
+                    temporal: false
             }
         } catch (e) {
             console.error(e)
@@ -329,7 +347,7 @@ export async function handler(chatUpdate) {
         const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 
-        if (opts['queque'] && m.text && !(isMods || isPrems)) {
+       /* if (opts['queque'] && m.text && !(isMods || isPrems)) {
             let queque = this.msgqueque, time = 1000 * 5
             const previousID = queque[queque.length - 1]
             queque.push(m.id || m.key.id)
@@ -337,8 +355,14 @@ export async function handler(chatUpdate) {
                 if (queque.indexOf(previousID) === -1) clearInterval(this)
                 await delay(time)
             }, time)
+        } */
+   
+        if (opts['queque'] && m.text && !m.fromMe && !(isMods || isPrems)) {
+            const id = m.id
+            this.msgqueque.add(id)
+            await this.msgqueque.waitQueue(id)
         }
-
+        
         if (m.isBaileys)
             return
         m.exp += Math.ceil(Math.random() * 10)
