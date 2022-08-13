@@ -25,7 +25,7 @@
     "bugs": {
         "url": "https://github.com/BotSatMagic/Gatabotmd/issues"
     },
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "dependencies": {
         "@adiwajshing/baileys": "github:BrunoSobrino/baileys",
         "@bochilteam/scraper": "^3.0.0",
