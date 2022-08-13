@@ -4,7 +4,7 @@ let chat = global.db.data.chats[m.chat]
 global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50  
 
-if (/^hola$/i.test(m.text) && chat.audios && !chat.isBanned) {
+if (/^hola|🫂$/i.test(m.text) && chat.audios && !chat.isBanned) {
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0 
 let vn = './media/Hola.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
@@ -35,7 +35,7 @@ let vn = './media/baneado.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}   
    
-if (c!chat.isBanned && hat.audios && m.text.match(/(bebito fiu fiu|bff|Bebito Fiu Fiu|Bff)/gi)) {    
+if (!chat.isBanned && hat.audios && m.text.match(/(bebito fiu fiu|bff|Bebito Fiu Fiu|Bff)/gi)) {    
 let vn = './media/bff.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}  
