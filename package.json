@@ -27,7 +27,7 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@adiwajshing/baileys": "github:BrunoSobrino/baileys",
+        "@adiwajshing/baileys": "github:FatihArridho/Baileys",
         "@bochilteam/scraper": "^3.0.0",
         "acrcloud": "^1.4.0",
         "awesome-phonenumber": "^2.68.0",
