@@ -1,5 +1,4 @@
 console.log('Iniciando | Starting 🚀🚀🚀')
-
 import { join, dirname } from 'path'
 import { createRequire } from "module";
 import { fileURLToPath } from 'url'
@@ -8,7 +7,6 @@ import { watchFile, unwatchFile } from 'fs'
 import cfonts from 'cfonts';
 import { createInterface } from 'readline'
 import yargs from 'yargs'
-
 // https://stackoverflow.com/a/50052194
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname) // Bring in the ability to create the 'require' method
@@ -21,10 +19,10 @@ say('Gata\nBot\nMD', {
   align: 'center',
   gradient: ['red', 'magenta']
 })
-say(`CHUPALO`, {
+say(`Por Chupalo`, {
   font: 'console',
   align: 'center',
-  gradient: ['blue', 'magenta']
+  gradient: ['red', 'magenta']
 })
 
 var isRunning = false
@@ -62,10 +60,10 @@ function start(file) {
   p.on('exit', (_, code) => {
     isRunning = false
     console.error('❎ㅤOcurrio un error inesperado:', code)
-
-  p.process.kill()
-  isRunning = false
-  start.apply(this, arguments)
+    
+    p.process.kill()
+    isRunning = false
+    start.apply(this, arguments)
 
     if (code === 0) return
     watchFile(args[0], () => {
@@ -80,5 +78,4 @@ function start(file) {
     })
   // console.log(p)
 }
-
 start('main.js')
