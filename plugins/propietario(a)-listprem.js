@@ -7,12 +7,12 @@ await conn.reply(m.chat, `*╭━[ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊𝙎 𝙑𝙄𝙋
   let text = `𝙌𝙐𝙀 𝙋𝙍𝙊!! 😼 𝙏𝙃𝙀𝙔 𝘼𝙍𝙀 𝙂𝙍𝙀𝘼𝙏!! ✨`.trim()   
 await conn.reply(m.chat, text, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
-title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | 𝙂𝙖𝙩𝙖 𝘿𝙞𝙤𝙨',
+title: `${wm}`,
 body: 'Super Bot WhatsApp',         
 previewType: 1, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
 sourceUrl: `${yt}`}}})
    
-await conn.sendHydrated(m.chat, null, wm, null, ig, '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢', null, null, [
+await conn.sendHydrated(m.chat, null, wm, null, ig, 'Hola', null, null, [
 ['𝙏𝙤𝙥 𝙐𝙨𝙪𝙖𝙧𝙞𝙤𝙨 | 𝙐𝙨𝙚𝙧𝙨 🏆', '.top'],
 //['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 | 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨 ✅', '/cuentasgb'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']

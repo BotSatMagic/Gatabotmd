@@ -77,7 +77,7 @@ rows: [
 {title: "💎 𝘾𝙤𝙢𝙪𝙣𝙞𝙘𝙖𝙙𝙤 𝙖 𝙂𝙧𝙪𝙥𝙤𝙨 | 𝘽𝙧𝙤𝙖𝙙𝙘𝙖𝙨𝙩 𝙂𝙧𝙤𝙪𝙥𝙨 💎", description: "𝙀𝙉𝙑𝙄𝘼𝙍 𝙐𝙉 𝘼𝙉𝙐𝙉𝘾𝙄𝙊 𝘼 𝙂𝙍𝙐𝙋𝙊𝙎\n𝙎𝙀𝙉𝘿 𝘼𝙉 𝘼𝘿 𝙏𝙊 𝙂𝙍𝙊𝙐𝙋𝙎", rowId: `${usedPrefix}bcgc`},  
 ]}, ] */
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/Menu1.jpg'  
+let pp = './media/menus/Menuvid1.mp4'  
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -102,7 +102,7 @@ let menu = `
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃💎➺ _${usedPrefix}dardiamantes *cantidad*_
 ┃💎➺ _${usedPrefix}darxp *cantidad*_
-┃💎➺ _${usedPrefix}dargatacoins *cantidad*_
+┃💎➺ _${usedPrefix}darcoins *cantidad*_
 ┃💎➺ _${usedPrefix}cajafuerte_
 ┃💎➺ _${usedPrefix}comunicar | broadcastall | bc *texto*_
 ┃💎➺ _${usedPrefix}broadcastchats | bcc *texto*_
@@ -111,7 +111,7 @@ let menu = `
 ┃💎➺ _${usedPrefix}comunicargrupos *texto*_
 ┃💎➺ _${usedPrefix}borrartmp | cleartmp_
 ┃💎➺ _${usedPrefix}delexp *@tag*_
-┃💎➺ _${usedPrefix}delgatacoins *@tag*_
+┃💎➺ _${usedPrefix}delcoins *@tag*_
 ┃💎➺ _${usedPrefix}deldiamantes *@tag*_
 ┃💎➺ _${usedPrefix}reiniciar | restart_
 ┃💎➺ _${usedPrefix}ctualizar | update_
@@ -120,7 +120,7 @@ let menu = `
 ┃💎➺ _${usedPrefix}listapremium | listprem_
 ┃💎➺ _${usedPrefix}añadirdiamantes *@tag cantidad*_
 ┃💎➺ _${usedPrefix}añadirxp *@tag cantidad*_
-┃💎➺ _${usedPrefix}añadirgatacoins *@tag cantidad*_
+┃💎➺ _${usedPrefix}añadircoins *@tag cantidad*_
 ╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
 conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', `${wm}`, null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],

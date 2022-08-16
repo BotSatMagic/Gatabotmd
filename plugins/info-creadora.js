@@ -36,7 +36,7 @@ await m.reply(`${wm} Wa.me/xxxxx\n${wm} *2* 💖🐈 Wa.me/xxxxxx\n${wm} *3* �
   
 let pp = './media/menus/Menu2.jpg'
 let str = `${wm}`
-let oficial = 'Comunícate con Mí Creadora por Instagram!!, Solo por ese medio puede ayudarte sobre Temas de GataBot\n\nCommunicate with My Creator on Instagram!!, Only by that means can help you on GataBot Themes'
+let oficial = 'Comunícate con Mí Creadora por Instagram!!, Solo por ese medio puede ayudarte sobre Temas de `${wm}`\n\nCommunicate with My Creator on Instagram!!, Only by that means can help you on `${wm}` Themes'
 
 await conn.sendHydrated2(m.chat, str, oficial, pp, 'Hola', `${wm}`, 'MMMM', 'Hola', [
 ['☘ 𝙄𝙧 𝙖𝙡 𝙞𝙣𝙞𝙘𝙞𝙤 | 𝙂𝙤 𝙩𝙤 𝙨𝙩𝙖𝙧𝙩', '/menu'],

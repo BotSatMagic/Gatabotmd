@@ -6,7 +6,7 @@ import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text }) => {
 try {
 let vn = './media/menu.mp3'
-let pp = './media/menus/Menu1.jpg'
+let pp = './media/menus/Menuvid1.mp4'
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
 let { min, xp, max } = xpRange(level, global.multiplier)
@@ -392,7 +392,7 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}nivel | level | lvl_
 ┃⚗️➺ _${usedPrefix}rol | rango_
 ┃⚗️➺ _${usedPrefix}minardiamantes | minargemas_
-┃⚗️➺ _${usedPrefix}minargatacoins | minarcoins_
+┃⚗️➺ _${usedPrefix}minarcoins_
 ┃⚗️➺ _${usedPrefix}minarexperiencia | minarexp_
 ┃⚗️➺ _${usedPrefix}minar *:* minar2 *:* minar3_
 ┃⚗️➺ _${usedPrefix}buy *cantidad*_
@@ -464,7 +464,7 @@ ${readMore}
 ┃💎 _${usedPrefix}unete *enlace*_
 ┃💎➺ _${usedPrefix}dardiamantes *cantidad*_
 ┃💎➺ _${usedPrefix}darxp *cantidad*_
-┃💎➺ _${usedPrefix}dargatacoins *cantidad*_
+┃💎➺ _${usedPrefix}darcoins *cantidad*_
 ┃💎➺ _${usedPrefix}cajafuerte_
 ┃💎➺ _${usedPrefix}comunicar | broadcastall | bc *texto*_
 ┃💎➺ _${usedPrefix}broadcastchats | bcc *texto*_
@@ -473,7 +473,7 @@ ${readMore}
 ┃💎➺ _${usedPrefix}comunicargrupos *texto*_
 ┃💎➺ _${usedPrefix}borrartmp | cleartmp_
 ┃💎➺ _${usedPrefix}delexp *@tag*_
-┃💎➺ _${usedPrefix}delgatacoins *@tag*_
+┃💎➺ _${usedPrefix}delcoins *@tag*_
 ┃💎➺ _${usedPrefix}deldiamantes *@tag*_
 ┃💎➺ _${usedPrefix}reiniciar | restart_
 ┃💎➺ _${usedPrefix}ctualizar | update_
@@ -482,7 +482,7 @@ ${readMore}
 ┃💎➺ _${usedPrefix}listapremium | listprem_
 ┃💎➺ _${usedPrefix}añadirdiamantes *@tag cantidad*_
 ┃💎➺ _${usedPrefix}añadirxp *@tag cantidad*_
-┃💎➺ _${usedPrefix}añadirgatacoins *@tag cantidad*_
+┃💎➺ _${usedPrefix}añadircoins *@tag cantidad*_
 *╰━━━━━━━━━━━━⬣*
 `.trim()
 
@@ -620,7 +620,7 @@ let str =
 *┆🎟️ PREMIUM ➟* ${global.prem ? '✅' : '❌'}
 *╰*┅┅┅┅┅┅┅┅┅┅┅┅┅ *✧*
 ${readMore}
-*╭━〔 INFORMACIÓN DE GATABOT 〕━⬣*
+*╭━〔 INFORMACIÓN DE ${wm} 〕━⬣*
 ┃💫➺ _${usedPrefix}cuentasgatabot | cuentasgb_
 ┃💫➺ _${usedPrefix}gruposgb | grupos | groupgb_
 ┃💫➺ _${usedPrefix}donar | donate_
@@ -642,7 +642,7 @@ ${readMore}
 *╰━━━━━━━━━━━━⬣*
 
 *╭━〔 ÚNETE AL GRUPO 〕━⬣*
-┃ *Une a GataBot en Grupos!!*
+┃ *Une a `${wm}` en Grupos!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🪅 _${usedPrefix}botemporal *enlace* *cantidad*_
 ┃🪅 _${usedPrefix}addbot *enlace* *cantidad*_
@@ -687,7 +687,7 @@ ${readMore}
 
 *╭━〔 IA 〕━⬣*
 ┃ *Tienes la Ocasión de*
-┃ *Conversar con GataBot!!*
+┃ *Conversar con `${wm}`!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🪄➺ _${usedPrefix}simi | okgoogle *texto*_
 ┃🪄➺ _${usedPrefix}alexa | siri | cortana *texto*_
@@ -746,7 +746,7 @@ ${readMore}
 *╰━━━━━━━━━━━━⬣*
 
 *╭━[ CONFIGURACIÓN - GRUPOS ]━⬣*
-┃ *Mejora tú Grupo con GataBot!!*
+┃ *Mejora tú Grupo con `${wm}`!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🌐➺ _${usedPrefix}add *numero*_
 ┃🌐➺ _${usedPrefix}sacar | ban | kick  *@tag*_
@@ -886,7 +886,7 @@ ${readMore}
 ° ඬ⃟📳 _${usedPrefix}leave_
 
 *╭━━[ BÚSQUEDAS 🔍 ]━━⬣*
-┃ *Busca lo que quieres con GataBot!!*
+┃ *Busca lo que quieres con `${wm}`!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🔍➺ _${usedPrefix}animeinfo *texto*_
 ┃🔍➺ _${usedPrefix}mangainfo *texto*_
@@ -931,7 +931,7 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}nivel | level | lvl_
 ┃⚗️➺ _${usedPrefix}rol | rango_
 ┃⚗️➺ _${usedPrefix}minardiamantes | minargemas_
-┃⚗️➺ _${usedPrefix}minargatacoins | minarcoins_
+┃⚗️➺ _${usedPrefix}minarcoins | minarcoins_
 ┃⚗️➺ _${usedPrefix}minarexperiencia | minarexp_
 ┃⚗️➺ _${usedPrefix}minar *:* minar2 *:* minar3_
 ┃⚗️➺ _${usedPrefix}buy *cantidad*_
@@ -948,7 +948,7 @@ ${readMore}
 ┃⚗️➺ _${usedPrefix}trabajar | work_
 *╰━━━━━━━━━━━━⬣*
 
-*╭━━━[ TOP EN GATABOT ]━━⬣*
+*╭━━━[ TOP EN `${wm}` ]━━⬣*
 ┃ *Averigua en que Top te encuentras!!*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🏆➺ _${usedPrefix}top | lb | leaderboard_
@@ -1002,7 +1002,7 @@ ${readMore}
 ┃💎 _${usedPrefix}unete *enlace*_
 ┃💎➺ _${usedPrefix}dardiamantes *cantidad*_
 ┃💎➺ _${usedPrefix}darxp *cantidad*_
-┃💎➺ _${usedPrefix}dargatacoins *cantidad*_
+┃💎➺ _${usedPrefix}darcoins *cantidad*_
 ┃💎➺ _${usedPrefix}cajafuerte_
 ┃💎➺ _${usedPrefix}comunicar | broadcastall | bc *texto*_
 ┃💎➺ _${usedPrefix}broadcastchats | bcc *texto*_
@@ -1011,7 +1011,7 @@ ${readMore}
 ┃💎➺ _${usedPrefix}comunicargrupos *texto*_
 ┃💎➺ _${usedPrefix}borrartmp | cleartmp_
 ┃💎➺ _${usedPrefix}delexp *@tag*_
-┃💎➺ _${usedPrefix}delgatacoins *@tag*_
+┃💎➺ _${usedPrefix}delcoins *@tag*_
 ┃💎➺ _${usedPrefix}deldiamantes *@tag*_
 ┃💎➺ _${usedPrefix}reiniciar | restart_
 ┃💎➺ _${usedPrefix}ctualizar | update_
@@ -1020,7 +1020,7 @@ ${readMore}
 ┃💎➺ _${usedPrefix}listapremium | listprem_
 ┃💎➺ _${usedPrefix}añadirdiamantes *@tag cantidad*_
 ┃💎➺ _${usedPrefix}añadirxp *@tag cantidad*_
-┃💎➺ _${usedPrefix}añadirgatacoins *@tag cantidad*_
+┃💎➺ _${usedPrefix}añadircoins *@tag cantidad*_
 *╰━━━━━━━━━━━━⬣*`
 const fkontak = {
 	"key": {

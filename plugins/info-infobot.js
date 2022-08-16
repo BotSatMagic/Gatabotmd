@@ -69,7 +69,7 @@ conn.sendHydrated(m.chat, info, wm, pp, 'Hola', `${wm}`, null, null, [
 }
 handler.help = ['infobot']
 handler.tags = ['info', 'tools']
-handler.command = /^(infobot|informacionbot|infogata|informacióngata|informaciongata)$/i
+handler.command = /^(infobot|informacionbot)$/i
 export default handler
 
 function clockString(ms) {

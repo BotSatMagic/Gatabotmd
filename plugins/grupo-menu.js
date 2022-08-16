@@ -74,7 +74,7 @@ rows: [
 {title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙥𝙤𝙧 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 | 𝙎𝙚𝙖𝙧𝙘𝙝 𝙗𝙮 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 🔍", description: "𝙀𝙉𝘾𝙐𝙀𝙉𝙏𝙍𝘼 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙀𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼\n𝙁𝙄𝙉𝘿 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 𝙊𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼", rowId: `${usedPrefix}wiki`},      
 ]}, ]*/
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/Menu1.jpg'
+let pp = './media/menus/Menuvid1.mp4'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -89,7 +89,7 @@ let menu = `
 ┃✪ *EXPERIENCIA | EXP ➺ ${exp}*
 ┃✪ *NIVEL | LEVEL ➺ ${level}*
 ┃✪ *ROL ➺* ${role}
-┃✪ *GATACOINS ➺ $ ${money}*
+┃✪ *COINS ➺ $ ${money}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✪ *FECHA ➺ ${week}, ${date}*
 ┃✪ *USUARIOS | USERS ➺ ${Object.keys(global.db.data.users).length}* 
