@@ -8,7 +8,7 @@ await conn.reply(m.chat, `*_⏳Sᴇ ᴇsᴛᴀ ᴘʀᴏᴄᴇsᴀɴᴅᴏ Sᴜ �
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝚁𝙴𝙿𝚁𝙾𝙳𝚄𝙲𝚃𝙾𝚁 𝙳𝙴 𝙰𝚄𝙳𝙸𝙾 𝚅𝟸',
 body: `${wm}`,
-previewType: 0, thumbnail: fs.readFileSync("./Menu2.jpg"),
+previewType: 0, thumbnail: fs.readFileSync("'./media/menus/Menu1.jpg"),
 sourceUrl: `hola`}}})
 let chat = global.db.data.chats[m.chat]
 const isY = /y(es)/gi.test(args[1])
