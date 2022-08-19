@@ -36,7 +36,7 @@ handler.tags = ['downloader']
 handler.command = ['play.1', 'play.2']
 export default handler*/
 
-
+/*
 import fs from 'fs'
 import fetch from 'node-fetch'
 let handler = async (m, {command, usedPrefix, conn, text}) => {
@@ -61,3 +61,4 @@ handler.command = ['play.1', 'play.2']
 handler.level = 0
 handler.limit = 1
 export default handler
+*/
