@@ -1,3 +1,4 @@
+/*
 let limit = 80
 import fs from 'fs'
 import fetch from 'node-fetch'
@@ -34,3 +35,4 @@ await conn.sendMessage(m.chat, { document: { url: link}, mimetype: 'audio/mpeg',
 }
 handler.command = /^ytmp3doc|ytadoc|ytmp3.2|yta.2$/i
 export default handler
+/*
