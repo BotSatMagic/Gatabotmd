@@ -7,7 +7,7 @@ try {
 let chat = global.db.data.chats[m.chat]
 const isY = /y(es)/gi.test(args[1])
 const { thumbnail, audio: _audio, title } = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
-const limitedSize = (isPrems || isOwner ? 350 : 200) * 3074
+const limitedSize = (isPrems || isOwner ? 350 : limit) * 3074
 let audio, source, res, link, lastError, isLimit
 for (let i in _audio) {
 try {
