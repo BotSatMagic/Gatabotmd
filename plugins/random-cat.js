@@ -3,8 +3,9 @@ let handler  = async (m, { conn, text }) => {
 try {
 let res = await fetch('https://cataas.com/cat')
 let img = await res.buffer()
-let caption = `${wm}`
-.trim()
+let caption = `
+𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿
+`.trim()
 conn.sendFile(m.chat, img, 'cat.jpg', caption, m)
 } catch (e) {
 console.log(e)

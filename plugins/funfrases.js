@@ -39,6 +39,7 @@ let handler  = async (m, { conn }) => {
     "Tu actitud, no tu aptitud, determinará tu altitud ",
     "Si no pierdes, no puedes disfrutar de las victorias",
     "Piensa, sueña, cree y atrévete ",
+    "Comete el mundo",
     "Los obstáculos son esas cosas atemorizantes que ves cuando apartas los ojos de tu meta",
     "Asegúrate de que colocas tus pies en el lugar correcto, y luego mantente firme",
     "Las ideas pueden cambiar la vida. A veces a lo único que tienes que abrir la puerta es a una buena idea ",

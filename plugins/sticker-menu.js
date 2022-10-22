@@ -60,7 +60,7 @@ readmore: readMore
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
  
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/Menuvid1.mp4'
+let pp = './media/menus/Menu1.jpg'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -70,20 +70,21 @@ let username = conn.getName(who)
 
 let menu = `
 💗 *¡HOLA | HI!* ${username}
-╭━━〔 *${wm}* 〕━━⬣
+╭━〔 *${wm}* 〕━⬣
 ┃🧸🧸🧸🧸🧸🧸🧸🧸🧸 
 ┃✪ *EXPERIENCIA | EXP ➺ ${exp}*
 ┃✪ *NIVEL | LEVEL ➺ ${level}*
 ┃✪ *ROL ➺* ${role}
 ┃✪ *COINS ➺ $ ${money}*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃✪ *FECHA ➺ ${week}, ${date}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃✪ *FECHA*
+┃➺ *${week}, ${date}*
 ┃✪ *USUARIOS | USERS ➺ ${Object.keys(global.db.data.users).length}* 
 ┃🧸🧸🧸🧸🧸🧸🧸🧸🧸 
-╰━━━━━━〔 𓃠 *${vs}* 〕━━━━━━⬣
+╰━━━━〔 𓃠 *${vs}* 〕━━━━⬣
 
-╭━〔 𝙈𝙀𝙉𝙐 𝙎𝙏𝙄𝘾𝙆𝙀𝙍𝙎 𝙔 𝙁𝙄𝙇𝙏𝙍𝙊𝙎 〕━⬣
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+╭━〔 𝙈𝙀𝙉𝙐 𝙎𝙏𝙄𝘾𝙆𝙀𝙍𝙎 𝙔 𝙁𝙄𝙇𝙏𝙍𝙊𝙎 〕⬣
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃🎐 _${usedPrefix}sticker | s *imagen o video*_
 ┃🎐 _${usedPrefix}sticker | s *url de tipo jpg*_
 ┃🎐 _${usedPrefix}emojimix *😺+😆*_
@@ -107,10 +108,10 @@ let menu = `
 ┃🎐 _${usedPrefix}stickermarker *efecto : responder a imagen*_
 ┃🎐 _${usedPrefix}stickerfilter *efecto : responder a imagen*_
 ┃🎐 _${usedPrefix}cs *:* cs2_
-╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', `${wm}`, null, null, [
+╰━━━━━━━━━━━━━━━━⬣`.trim()
+conn.sendHydrated(m.chat, menu, wm, pp, `${wm}`, `${wm}`, null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],
-['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 | 𝙈𝙚𝙣𝙪 𝙇𝙞𝙨𝙩 🌟', '/menulista'],
+['𝙄𝙣𝙫𝙚𝙣𝙩𝙖𝙧𝙞𝙤 | 𝙄𝙣𝙫𝙚𝙣𝙩𝙤𝙧𝙮 🎒', '/inventario'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu']
 ], m,)
 }

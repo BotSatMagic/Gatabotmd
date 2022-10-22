@@ -12,17 +12,17 @@ let gatacoins = parseInt(txt)
 let money = gatacoins
 let pjk = Math.ceil(gatacoins * pajak)
 money += pjk
-if (money < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄𝙈𝙊 𝘿𝙀 𝘾𝙊𝙄𝙉𝙎 𝙀𝙎 *1*\n\n𝙏𝙃𝙀 𝙈𝙄𝙉𝙄𝙈𝙐𝙈 𝙉𝙐𝙈𝘽𝙀𝙍 𝙁𝙍𝙊𝙈 𝘾𝙊𝙄𝙉𝙎 𝙄𝙎 *1*`
+if (money < 1) throw `${mg}𝙀𝙇 𝙉𝙐𝙈𝙀𝙍𝙊 𝙈𝙄𝙉𝙄𝙈𝙊 𝘿𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 𝙀𝙎 *1*\n\n𝙏𝙃𝙀 𝙈𝙄𝙉𝙄𝙈𝙐𝙈 𝙉𝙐𝙈𝘽𝙀𝙍 𝙁𝙍𝙊𝙈 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 𝙄𝙎 *1*`
 let users = global.db.data.users
 users[who].money += gatacoins
 
-conn.sendHydrated(m.chat, `╭━━━[ 𝘾𝙊𝙄𝙉𝙎 🐈 ]━━━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ *${text}*\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${gatacoins} GataCoin(s)* 🐈\n┃\n╰━━━━━━━━━━━━━━⬣`, wm, null, md, `${wm}`, null, null, [
+conn.sendHydrated(m.chat, `╭━━━[ ${wm} ]━━━⬣\n┃\n┃ღ *PARA | FOR:*\n┃ღ *${text}*\n┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┃ღ *SE LE AÑADIÓ | NOW YOU HAVE*\n┃ღ *${gatacoins} Coin(s)* 🐈\n┃\n╰━━━━━━━━━━━━━━⬣`, wm, null, md, `${wm}`, null, null, [
 ['💗 𝙈𝙚𝙣𝙪 𝘼𝙫𝙚𝙣𝙩𝙪𝙧𝙖 | 𝙍𝙋𝙂 💗', '.rpgmenu'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu']], m)
 }
 handler.help = ['addgb <@user>']
 handler.tags = ['coins']
-handler.command = ['añadircoins', 'darcoins'] 
+handler.command = ['añadircoins', 'añadirg', 'añadircoins', 'darcoins', 'darc', 'darcoins'] 
 handler.group = true
 handler.botAdmin = true
 handler.rowner = true

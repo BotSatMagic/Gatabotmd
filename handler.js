@@ -73,7 +73,7 @@ export async function handler(chatUpdate) {
 	        }
 		                    		    
           if (!isNumber(user.afk)) user.afk = -1
-	      if (!('autolevelup' in user))  user.autolevelup = true
+	      if (!('autolevelup' in user))  user.autolevelup = false
 	      if (!('role' in user)) user.role = 'Novato'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
@@ -509,7 +509,7 @@ export async function handler(chatUpdate) {
                     armormonster: 0,
                     as: 0,
                     atm: 0,
-                    autolevelup: true,
+                    autolevelup: false,
                     axe: 0,
                     axedurability: 0,
                     ayam: 0,
@@ -909,7 +909,7 @@ export async function handler(chatUpdate) {
 		if (!('antifake' in chat)) chat.antifake = false
 		if (!('reaction' in chat)) chat.reaction = true    
                 if (!('viewonce' in chat)) chat.viewonce = false                    
-                if (!('antitoxic' in chat)) chat.antitoxic = true  
+                if (!('antitoxic' in chat)) chat.antitoxic = false  
 		if (!('antiSpam' in chat)) chat.antiSpam = true  
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
@@ -923,7 +923,7 @@ export async function handler(chatUpdate) {
                     sPromote: '',
                     sDemote: '', 
                     delete: true,
-                    modohorny: true,
+                    modohorny: false,
                     stickers: true,
                     autosticker: false,
                     audios: true,
@@ -939,7 +939,7 @@ export async function handler(chatUpdate) {
 		    antifake: false,
 		    reaction: true,
                     viewonce: false,
-                    antitoxic: true,
+                    antitoxic: false,
 		    antiSpam: true,
                     expired: 0,
                 }
@@ -1204,7 +1204,7 @@ export async function handler(chatUpdate) {
                             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists)
-                                    m.reply(`*⚙️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 𝗙𝗔𝗟𝗟𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗘𝗥𝗥𝗢𝗥 ⚙️*\n\n*⚠️ 𝗣𝗟𝗨𝗚𝗜𝗡*\n*_${name}_*\n\n*⚠️ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 : 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘*\n*_${m.sender}_*\n\n*⚠️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗*\n*_${m.text}_*\n\n*𝗘𝗥𝗥𝗢𝗥*\n\`\`\`${format(e)}\`\`\`\n\n*❗ 𝗥𝗘𝗣𝗢𝗥𝗧𝗘 𝗘𝗦𝗧𝗘 𝗠𝗘𝗡𝗦𝗔𝗝𝗘 𝗨𝗦𝗔𝗡𝗗𝗢 𝗘𝗟 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 #reporte 𝗣𝗔𝗥𝗔 𝗦𝗢𝗟𝗨𝗖𝗜𝗢𝗡𝗔𝗥𝗟𝗢*`.trim(), data.jid)
+                                    m.reply(`*🔴 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 𝗙𝗔𝗟𝗟𝗔𝗡𝗗𝗢 : 𝗘𝗥𝗥𝗢𝗥 🔴*\n\n*⚠️ 𝗣𝗟𝗨𝗚𝗜𝗡*\n*_${name}_*\n\n*⚠️ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 : 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘*\n*_${m.sender}_*\n\n*⚠️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗*\n*_${m.text}_*\n\n⚠️ *𝗘𝗥𝗥𝗢𝗥*\n\`\`\`${format(e)}\`\`\`\n\n*❗ 𝗥𝗘𝗣𝗢𝗥𝗧𝗘 𝗘𝗦𝗧𝗘 𝗠𝗘𝗡𝗦𝗔𝗝𝗘 𝗨𝗦𝗔𝗡𝗗𝗢 𝗘𝗟 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 #reporte 𝗣𝗔𝗥𝗔 𝗦𝗢𝗟𝗨𝗖𝗜𝗢𝗡𝗔𝗥𝗟𝗢*`.trim(), data.jid)
                             }
                         m.reply(text)
                     }
@@ -1279,7 +1279,7 @@ export async function handler(chatUpdate) {
 	await this.readMessages([m.key])
 	    
         if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0
-        if (!m.fromMem && m.text.match(/(has|ato|ido|ura|des|able|sub|izo|ita|con|.-.|._.|:)|:(|:v|v:|o.o|;v|v;|v':|:'v)/gi)) {
+        if (!m.fromMem && m.text.match(/(hola|chao|bot|michu|hello|hi|miralo)/gi)) {
         let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "🥰", "😘", "😊", "🥳", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "👾", "🎃", "👻", "🤡", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "💫", "⭐️", "🌟", "✨", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🍭", "🍩", "🍫", "🍧", "🚀", "🚅", "🚄", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
         this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
         function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
@@ -1311,7 +1311,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     try {
                         pp = await this.profilePictureUrl(user, 'image')
                     } catch (e) {
-                    } finally {  
+                    } finally {
                         let apii = await this.getFile(pp)
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
                               (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
@@ -1340,7 +1340,7 @@ export async function participantsUpdate({ id, participants, action }) {
  * Handle groups update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
- export async function groupsUpdate(groupsUpdate) {
+export async function groupsUpdate(groupsUpdate) {
     if (opts['self'])
         return
     for (const groupUpdate of groupsUpdate) {
@@ -1403,7 +1403,7 @@ global.dfail = (type, m, conn) => {
         private: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Este comando solo se puede usar en el chat privado del Bot!!*_\n_*¡¡This command can only be used in private chat*_',
         admin: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Este comando es solo para Administradores!!*_\n_*¡¡This command is for Administrators only!!*_',
         botAdmin: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Haz que Yo (Bot) sea Administrador para usar este comando!!*_\n_*¡¡Make the bot an Admin to use this command!!*_',
-        unreg: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡Qué esperas para estar Verificando(a) en GataBot-MD! Usa el comando #verificar*_\n_*What are you waiting for to be Verifying with GataBot-MD! Use the #verify command*_',
+        unreg: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡Qué esperas para estar Verificando(a) en BOT Usa el comando #verificar*_\n_*What are you waiting for to be Verifying with Bot Use the #verify command*_',
         restrict: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Esta función está Restringida | disable por Mí Creador(a)!!*_\n_*¡¡This feature is off | disable!!*_'
     }[type]
     if (msg) return m.reply(msg) 

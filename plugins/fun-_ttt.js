@@ -87,7 +87,7 @@ let str = `
      ${arr.slice(3, 6).join('')}
      ${arr.slice(6).join('')}
 *┈┈┈┈┈┈┈┈┈*
-${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} 😎🏆 *GANASTE!!*\n*POR HABER GANADO OBTIENES*\n\n💎 *${dia2} Diamantes*\n🪙 *${tok2} Tokens*\n🐈 *${gata2} GataCoins*\n⚡ *${expp2} Exp*` : isTie ? `*EMPATE!!* 🤨\n*POR TERMINAR EN EMPATE AMBOS OBTIENEN*\n\n💎 *${dia} Diamantes*\n🪙 *${tok} Tokens*\n🐈 *${gata} GataCoins*\n⚡ *${expp} Exp*` : `🪄 *TURNO DE* @${room.game.currentTurn.split('@')[0]}`}
+${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} 😎🏆 *GANASTE!!*\n*POR HABER GANADO OBTIENES*\n\n💎 *${dia2} Diamantes*\n🪙 *${tok2} Tokens*\n🐈 *${gata2} Coins*\n⚡ *${expp2} Exp*` : isTie ? `*EMPATE!!* 🤨\n*POR TERMINAR EN EMPATE AMBOS OBTIENEN*\n\n💎 *${dia} Diamantes*\n🪙 *${tok} Tokens*\n🐈 *${gata} Coins*\n⚡ *${expp} Exp*` : `🪄 *TURNO DE* @${room.game.currentTurn.split('@')[0]}`}
 `.trim()
 let users = global.db.data.users
 if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
@@ -99,18 +99,18 @@ await this.sendMessage(room.o, { text: str, mentions: this.parseMention(str)}, {
 if (isTie || isWin) {
 users[room.game.playerX].limit += dia //empate
 users[room.game.playerX].joincount += tok
-users[room.game.playerX].money += xcoin
+users[room.game.playerX].money += gata
 users[room.game.playerX].exp += expp
         
 users[room.game.playerO].limit += dia //empate
 users[room.game.playerO].joincount += tok
-users[room.game.playerO].money += xcoin
+users[room.game.playerO].money += gata
 users[room.game.playerO].exp += expp 
         
 if (isWin)
 users[winner].limit += dia2 //Ganador
 users[winner].joincount += tok2
-users[winner].money += xcoin2
+users[winner].money += gata2
 users[winner].exp += expp2
         
 if (debugMode)
